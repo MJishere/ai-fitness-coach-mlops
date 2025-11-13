@@ -13,7 +13,7 @@ st.write("---")
 st.header("📊 Daily Calorie Prediction")
 
 gender_option = st.selectbox("Gender", ["Male", "Female"])
-gender = 1 if gender_option == "Male" else 0                                        # Because Dataset uses 0 or 1 for gender
+gender = 1 if gender_option == "Male" else 0
 age = st.number_input("Age", min_value=10, max_value=100, value=25)
 height = st.number_input("Height (cm)", min_value=100, max_value=250, value=170)
 weight = st.number_input("Weight (kg)", min_value=30, max_value=200, value=70)
@@ -41,4 +41,4 @@ st.header("Generate Workout Plan")
 
 if st.button("Generate Workout Plan"):
     response = requests.get(f"{API_URL}/generate_workout_plan")
-    st.info(response.json()["diet"])
+    st.info(response.json()["plan"])
