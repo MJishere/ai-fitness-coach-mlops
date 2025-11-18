@@ -3,9 +3,9 @@ pipeline {
 
   environment {
     AWS_REGION    = "us-east-1"
-    ECR_BACKEND   = "ai_fitness_backend"
-    ECR_FRONTEND  = "ai_fitness_frontend"
-    EKS_CLUSTER   = "ai-fitness-coach-eks"
+    ECR_BACKEND   = "ai-fitness-coach_backend"
+    ECR_FRONTEND  = "ai-fitness-coach_frontend"
+    EKS_CLUSTER   = "ai-fitness-coach_zeks"
     NAMESPACE     = "ai-fitness-coach"
     K8S_MANIFEST_DIR = "ai-fitness-coach-mlops/K8s"
   }
