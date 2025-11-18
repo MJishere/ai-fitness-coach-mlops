@@ -2,7 +2,7 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
-COPY backend /app/backend
+COPY . /app/backend
 
 RUN pip install --no-cache-dir fastapi uvicorn scikit-learn joblib pandas openai
 

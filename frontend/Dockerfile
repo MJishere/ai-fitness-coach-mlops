@@ -2,7 +2,7 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
-COPY frontend /app/frontend
+COPY . /app/frontend
 
 RUN pip install --no-cache-dir streamlit requests
 
