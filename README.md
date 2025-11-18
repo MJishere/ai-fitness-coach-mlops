@@ -34,5 +34,4 @@ Predicts daily calorie needs using:
 
 ---
 
-## 🗂 Project Structure
 

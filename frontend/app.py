@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+import os
 
 # Load custom CSS
 with open("frontend/style.css") as f:
@@ -11,7 +12,7 @@ st.set_page_config(page_title="AI Fitness Coach", layout="centered")
 # Title
 st.title("AI Fitness Coach App")
 
-API_URL = "http://127.0.0.1:8000"
+API_URL = os.getenv("API_URL", "http://127.0.0.1:8000")
 
 # ---------------- USER INPUT CARD ---------------- #
 st.markdown("<div class='card'>", unsafe_allow_html=True)

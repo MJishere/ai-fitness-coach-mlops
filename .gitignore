@@ -37,3 +37,56 @@ dist/
 # Logs
 *.log
 logs/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# Backend/Frontend cache
+frontend/__pycache__/
+backend/__pycache__/
+
+# AWS credentials (never push)
+.aws/
+
+# Kubernetes configs
+.kube/
+
+# Jenkins (local)
+workspace/
+jobs/
+builds/
+
+# Terraform state files
+*.tfstate
+*.tfstate.*
+
+# Terraform working directory
+.terraform/
+
+# Provider lock file
+.terraform.lock.hcl
+
+# Crash logs
+crash.log
+crash.*
+
+# Backup files
+*.tfvars.backup
+*.tfvars.json.backup
+
+# Local variable files (usually contain secrets)
+terraform.tfvars
+*.tfvars
+*.tfvars.json
+
+# Override files (local only, should not be committed)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Docker local overrides
+docker-compose.override.yml

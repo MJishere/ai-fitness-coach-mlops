@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ai-fitness-config
+  namespace: ai-fitness-coach
+data:
+  API_URL: "http://fitness-backend-service:8000"

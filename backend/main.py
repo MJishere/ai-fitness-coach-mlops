@@ -6,7 +6,7 @@ import os
 import pandas as pd
 
 # Load the ML model
-model = joblib.load("backend/model/calorie_model.pkl")
+model = joblib.load("/app/backend/model/calorie_model.pkl")
 
 app = FastAPI(title="AI Fitness Coach Backend")
 
@@ -136,3 +136,8 @@ def generate_diet_plan(data: UserInput):
         
     except Exception as e:
         return {"error": str(e)}
+    
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+

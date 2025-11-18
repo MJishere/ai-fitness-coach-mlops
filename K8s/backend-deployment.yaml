@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: fitness-backend
+  namespace: ai-fitness-coach
+  labels:
+    app: fitness-backend
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fitness-backend
+  template:
+    metadata:
+      labels:
+        app: fitness-backend
+    spec:
+      containers:
+        - name: fitness-backend
+          image: <ECR_BACKEND_IMAGE>
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 8000
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+          env:
+          - name: OPENAI_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: openai-secret
+                key: OPENAI_API_KEY
+          
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+
+          livenessProbe:
+            httpGet: 
+              path: /health
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 15
+                
