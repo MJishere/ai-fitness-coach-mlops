@@ -5,7 +5,7 @@ pipeline {
     AWS_REGION    = "us-east-1"
     ECR_BACKEND   = "ai-fitness-coach_backend"
     ECR_FRONTEND  = "ai-fitness-coach_frontend"
-    EKS_CLUSTER   = "ai-fitness-coach_zeks"
+    EKS_CLUSTER   = "ai-fitness-coach-eks"
     NAMESPACE     = "ai-fitness-coach"
     K8S_MANIFEST_DIR = "ai-fitness-coach-mlops/K8s"
   }
