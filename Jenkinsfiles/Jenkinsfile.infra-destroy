@@ -23,6 +23,24 @@ pipeline {
             }
         }
 
+    // Clean up cluster resources( not cluster itself) -> Needed because frontend deployment creates loadbalancers and other resources
+    // which don't get tracked by terraform
+    stage("Clean Kubernetes Resources") {
+        steps {
+            withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-creds']]) {
+                sh """
+                    aws eks update-kubeconfig --region ${AWS_DEFAULT_REGION} --name ai-fitness-coach-eks
+
+                    # Delete entire namespace (includes services, deployments, LBs)
+                    kubectl delete namespace ai-fitness-coach --ignore-not-found=true
+
+                    # Wait a bit for AWS LBs, ENIs, SGs to disappear
+                    sleep 60
+                """
+            }
+        }
+    }
+
         stage("Terraform Destroy") {
             steps {
                 dir("${TF_WORKDIR}") {
