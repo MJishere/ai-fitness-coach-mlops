@@ -62,7 +62,7 @@ docker exec -u root jenkins bash -c "groupadd -g $HOST_DOCKER_GID dockerhost || 
 # -------------------------------------------
 
 # Wait for Jenkins container to fully start
-sleep 20
+sleep 40
 
 # -------------------------------------------
 # Install Terraform + kubectl + Git + AWS CLI inside Jenkins container
