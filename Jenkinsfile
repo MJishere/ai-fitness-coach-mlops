@@ -7,7 +7,7 @@ pipeline {
     ECR_FRONTEND  = "ai-fitness-coach_frontend"
     EKS_CLUSTER   = "ai-fitness-coach-eks"
     NAMESPACE     = "ai-fitness-coach"
-    K8S_MANIFEST_DIR = "ai-fitness-coach-mlops/K8s"
+    K8S_MANIFEST_DIR = "K8s"
   }
 
   stages {
