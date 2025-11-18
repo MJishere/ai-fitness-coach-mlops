@@ -26,7 +26,7 @@ pipeline {
         stage("Terraform Destroy") {
             steps {
                 dir("${TF_WORKDIR}") {
-                    withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-devops-creds']]) {
+                    withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-creds']]) {
                         sh '''
                             terraform init -input=false -no-color
                             terraform destroy -auto-approve
