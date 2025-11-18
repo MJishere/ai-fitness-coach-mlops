@@ -77,6 +77,11 @@ pipeline {
               aws eks update-kubeconfig --region ${AWS_REGION} --name ${EKS_CLUSTER}
             """
 
+            // FIX: Namespace must be created BEFORE the secret
+            sh """
+              kubectl apply -f ${K8S_MANIFEST_DIR}/namespace.yaml
+            """
+
             // Create Kubernetes secret dynamically (OpenAI KEY)
             withCredentials([string(credentialsId: 'OPENAI_API_KEY', variable: 'OPENAI_API_KEY')]) {
               sh """
@@ -86,9 +91,8 @@ pipeline {
               """
             }
 
-            // Apply all manifests except secret
+            // Apply remaining manifests
             sh """
-              kubectl apply -f ${K8S_MANIFEST_DIR}/namespace.yaml
               kubectl apply -f ${K8S_MANIFEST_DIR}/configmap.yaml
               kubectl apply -f ${K8S_MANIFEST_DIR}/backend-service.yaml
               kubectl apply -f ${K8S_MANIFEST_DIR}/frontend-service.yaml
