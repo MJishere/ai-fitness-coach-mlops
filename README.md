@@ -57,7 +57,9 @@ CI/CD Phase( Jenkinsfile + Jenkinsfiles/)
 
 ## Architecture Diagram - Create Infrastructure
 
-![Architecture Diagram - Bootstraphing Jenkins](https://raw.githubusercontent.com/MJishere/ai-fitness-coach-mlops/master/Screenshots/Jenkins-Create-Infrastrucure-Pipeline.png)## Tech Stack
+![Architecture Diagram - Bootstraphing Jenkins](https://raw.githubusercontent.com/MJishere/ai-fitness-coach-mlops/master/Screenshots/Jenkins-Create-Infrastrucure-Pipeline.png)
+
+## Tech Stack
 
 | Category             | Tools/Services                                                                |
 | ----------------- | ------------------------------------------------------------------ |
