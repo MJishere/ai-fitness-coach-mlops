@@ -126,10 +126,10 @@ pipeline {
 
   post {
     success {
-      echo "🚀 Deployment Successful for Build ${BUILD_NUMBER}"
+      echo "Deployment Successful for Build ${BUILD_NUMBER}"
     }
     failure {
-      echo "❌ Deployment Failed"
+      echo "Deployment Failed! Please check the logs"
     }
   }
 }
